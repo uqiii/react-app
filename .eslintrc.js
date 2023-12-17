@@ -26,6 +26,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prefer-exact-props': 'off',
+    'react/prop-types': 0,
     'react/jsx-filename-extension': [
       1,
       {

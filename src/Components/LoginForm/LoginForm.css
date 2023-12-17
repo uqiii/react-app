@@ -1,0 +1,13 @@
+.wrapper {
+  width: 420px;
+  padding: 20px;
+  background: transparent;
+  border: 2px ;
+  backdrop-filter: blur(30px);
+  background-color: slateblue;
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+}
