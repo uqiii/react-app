@@ -3,9 +3,20 @@ import axios from 'axios';
 // const BASE_URL = 'http://https://green-pike-hose.cyclic.app:3001';
 const BASE_URL = 'http://localhost:3001';
 
-export default axios.create({ baseURL: BASE_URL });
+let authTokens = localStorage.getItem('tokens') ? JSON.parse(localStorage.getItem('tokens')) : null;
 
-export const axiosPrivate = axios.create({
+const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  headers: { 'Content-Type': 'application/json' }
+  headers: authTokens?.accessToken && { Authorization: `Bearer ${authTokens?.accessToken}` }
 });
+
+axiosInstance.interceptors.request.use(async (req) => {
+  if (!req.headers.Authorization) {
+    authTokens = localStorage.getItem('tokens') ? JSON.parse(localStorage.getItem('tokens')) : null;
+    req.headers.Authorization = `Bearer ${authTokens?.accessToken}`;
+  }
+
+  return req;
+});
+
+export default axiosInstance;

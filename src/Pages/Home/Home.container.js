@@ -1,8 +1,8 @@
 import React from 'react';
-import { compose, withHandlers } from 'react-recompose';
+import { compose } from 'react-recompose';
 
 import Home from './Home.component';
-import handlers from './Home.handlers';
+import withAuth from '../../Composers/withAuth';
 
 export const HomeContainer = (props) => <Home {...props} />;
 
@@ -10,5 +10,5 @@ HomeContainer.displayName = 'HomeContainer';
 
 export default
 compose(
-  withHandlers(handlers)
+  withAuth
 )(HomeContainer);

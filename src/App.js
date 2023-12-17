@@ -1,17 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import { Login } from './Pages/Login';
 import { Home } from './Pages/Home';
-import Layout from './Layout';
+import { Profile } from './Pages/Profile';
+// import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route path="login" element={<Login />} />
-        {/* <Route element={<RequireAuth />}> */}
-        <Route path="/" element={<Home />} />
-        {/* </Route> */}
-      </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={(<Home />)} />
+      <Route path="/profile" element={<Profile />} exact />
     </Routes>
   );
 }

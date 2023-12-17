@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import axios from '../../Api/axios';
 
 import { PresenceCard } from '../../Components/PresenceCard';
 
 const Home = () => {
-  // const { getPresences } = props;
   const [presences, setPresences] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // getPresences((response) => {
-    //   setPresences(response.data);
-    // });
-    setPresences([{ id: 'id', checkIn: '2023-12-10T13:35:55.188Z' }]);
+    const getPresences = async () => {
+      const url = '/users/current/presences';
+      try {
+        setLoading(true);
+        const response = await axios.get(url);
+        setPresences(response.data);
+      } catch (err) {
+        console.log('Error when fetching :', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getPresences();
   }, []);
 
   const renderPresence = ({ id, checkIn }) => (
     <PresenceCard
+      key={id}
       id={id}
       checkIn={checkIn}
     />
@@ -25,7 +37,7 @@ const Home = () => {
       <div>
         Hi, how are you today?
       </div>
-      {presences.length && presences.map(renderPresence)}
+      {loading ? <div>loading</div> : presences.length && presences.map(renderPresence)}
     </div>
   );
 };

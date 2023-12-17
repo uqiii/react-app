@@ -3,13 +3,13 @@ import { compose, withHandlers } from 'react-recompose';
 
 import Login from './Login.component';
 import handlers from './Login.handlers';
-import withNavigate from '../../Composers/withNavigate';
+import withAuth from '../../Composers/withAuth';
 
 export const LoginContainer = (props) => <Login {...props} />;
 
 LoginContainer.displayName = 'LoginContainer';
 
 export default compose(
-  withNavigate,
+  withAuth,
   withHandlers(handlers)
 )(LoginContainer);
