@@ -11,10 +11,8 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(async (req) => {
-  if (!req.headers.Authorization) {
-    authTokens = localStorage.getItem('tokens') ? JSON.parse(localStorage.getItem('tokens')) : null;
-    req.headers.Authorization = `Bearer ${authTokens?.accessToken}`;
-  }
+  authTokens = localStorage.getItem('tokens') ? JSON.parse(localStorage.getItem('tokens')) : null;
+  req.headers.Authorization = `Bearer ${authTokens?.accessToken}`;
 
   return req;
 });
