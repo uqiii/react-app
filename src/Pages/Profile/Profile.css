@@ -1,0 +1,48 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.editButton {
+  align-self: end;
+}
+
+.editButton:hover {
+  cursor: pointer;
+}
+
+.profileContainer .name {
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+.profileContainer .position {
+  font-size: medium;
+  font-weight: 700;
+}
+
+.profileContainer .email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: x-large;
+}
+
+.profileContainer .phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: x-large;
+}
+
+.avatar {
+  height: 80px;
+  width: 80px;
+  background-color: blanchedalmond;
+  border-radius: 50%;
+}

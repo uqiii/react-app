@@ -8,7 +8,7 @@ const InputBox = (props) => {
   return (
     <div className="input-box">
       <input {...inputProps} className="border" />
-      <Icon className="icon" />
+      {Icon && <Icon className="icon" />}
     </div>
   );
 };
