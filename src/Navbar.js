@@ -17,13 +17,11 @@ export default function Navbar() {
 
   return (
     <nav className="nav">
-      <Link to="/" className="site-title">
-        Daily
-      </Link>
-      <ul>
+      <CustomLink to="/">Daily</CustomLink>
+      <div className="rightPages">
         <CustomLink to="/profile">Profile</CustomLink>
-        <button className="border" type="button" onClick={auth.logoutUser}>Log Out</button>
-      </ul>
+        <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
+      </div>
     </nav>
   );
 }
@@ -33,10 +31,8 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
   return (
-    <li className={isActive ? 'active' : ''}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </li>
+    <Link to={to} {...props} className={`site-title ${isActive ? 'active' : ''}`}>
+      {children}
+    </Link>
   );
 }
