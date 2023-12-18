@@ -24,7 +24,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="wrapper border">
+    <div className="page loginComponent border">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <InputBox

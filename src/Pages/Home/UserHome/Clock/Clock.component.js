@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import './Clock.css';
 import axios from '../../../../Api/axios';
 import { ActionButton } from '../../../../Components/ActionButton';
+import DateUtils from '../../../../Utils/DateUtils';
 
 const Home = ({ onSuccess }) => {
-  const time = new Date().toLocaleTimeString('id-ID');
-  const [currentTime, setCurrentTime] = useState(time);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   setInterval(() => {
-    setCurrentTime(new Date().toLocaleTimeString('id-ID'));
+    setCurrentTime(new Date());
   }, 1000);
 
   const doCheckIn = async () => {
@@ -26,8 +26,11 @@ const Home = ({ onSuccess }) => {
 
   return (
     <div className="clockContainer">
+      <div className="date">
+        {DateUtils.getDate(currentTime)}
+      </div>
       <div className="time">
-        {currentTime}
+        {DateUtils.getTime(currentTime)}
         {' '}
         WIB
       </div>

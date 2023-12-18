@@ -2,20 +2,7 @@ import React from 'react';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
 import './PresenceCard.css';
-
-const getTime = (timestamp) => {
-  if (!timestamp) {
-    return null;
-  }
-  return new Date(timestamp).toLocaleTimeString('id-ID');
-};
-
-const getDate = (timestamp) => {
-  if (!timestamp) return null;
-  return new Date(timestamp).toLocaleDateString('en-US', {
-    weekday: 'long', year: 'numeric', month: 'short', day: 'numeric'
-  });
-};
+import DateUtils from '../../Utils/DateUtils';
 
 const PresenceCard = (props) => {
   const {
@@ -25,7 +12,7 @@ const PresenceCard = (props) => {
 
   const getCheckOutText = () => {
     if (checkOut) {
-      const checkOutTime = getTime(checkOut);
+      const checkOutTime = DateUtils.getTime(checkOut);
       return `${checkOutTime} WIB`;
     }
     if (userName) {
@@ -34,8 +21,8 @@ const PresenceCard = (props) => {
     return isToday ? 'You have not checked out' : 'You did not check out';
   };
 
-  const date = getDate(checkIn);
-  const checkInTime = getTime(checkIn);
+  const date = DateUtils.getDate(checkIn);
+  const checkInTime = DateUtils.getTime(checkIn);
   const checkInText = `${checkInTime} WIB`;
 
   const dateTitle = isToday ? `Today, ${date}` : date;

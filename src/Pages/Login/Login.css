@@ -1,17 +1,17 @@
-.wrapper {
-  width: 420px;
+.loginComponent {
   padding: 20px;
-  background: transparent;
-  border: 2px ;
-  backdrop-filter: blur(30px);
-  background-color: slateblue;
+  background-color: darkslategrey;
 }
 
-.wrapper .switch {
+.loginComponent form{
+  width: auto;
+}
+
+.loginComponent .switch {
   margin-bottom: 20px;
 }
 
-.wrapper h1 {
+.loginComponent h1 {
   font-size: 36px;
   text-align: center;
 }

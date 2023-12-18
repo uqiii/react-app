@@ -8,9 +8,14 @@
   width: auto;
 }
 
-.time {
+.clockContainer .time {
   align-self: center;
   font-size: xx-large;
+}
+
+.clockContainer .date {
+  font-size: medium;
+  align-self: center;
 }
 
 .buttonsContainer {

@@ -5,6 +5,14 @@ const getDate = (timestamp) => {
   });
 };
 
+const getTime = (timestamp) => {
+  if (!timestamp) {
+    return null;
+  }
+  return new Date(timestamp).toLocaleTimeString('id-ID');
+};
+
 export default {
-  getDate
+  getDate,
+  getTime
 };
