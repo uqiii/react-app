@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 import './ActionButton.css';
 import { Loading } from '../Loading';
@@ -11,8 +12,10 @@ const ActionButton = (props) => {
     setLoading(true);
     try {
       await onSubmit();
+      toast.success('Success');
     } catch (err) {
-      console.log('error when do action, Err: ', err);
+      const errorMessage = err?.response?.data?.message;
+      toast.error(errorMessage || 'Error');
     } finally {
       setLoading(false);
     }

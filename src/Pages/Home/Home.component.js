@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 import './Home.css';
 import axios from '../../Api/axios';
@@ -18,7 +19,8 @@ const Home = () => {
         const response = await axios.get(url);
         setPresences(response.data);
       } catch (err) {
-        console.log('Error when fetching :', err);
+        const errorMessage = err?.response?.data?.message;
+        toast.error(errorMessage || 'Error');
       } finally {
         setLoading(false);
       }

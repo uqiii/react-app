@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import axios from '../Api/axios';
 
@@ -19,11 +20,13 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.post(url, payload);
+      toast.success('Successfully Logged in');
       localStorage.setItem('tokens', JSON.stringify(response.data));
       setUser(jwtDecode(response?.data?.accessToken));
       navigate('/', { replace: true });
     } catch (err) {
-      console.log(`Error when when requesting ${url}:`, err);
+      const errorMessage = err?.response?.data?.message;
+      toast.error(errorMessage || 'Error');
     } finally {
       setLoading(false);
     }
@@ -32,6 +35,7 @@ export const AuthProvider = ({ children }) => {
   const logoutUser = () => {
     setUser(null);
     localStorage.removeItem('tokens');
+    toast.success('Successfully logged out');
     navigate('/login');
   };
 
