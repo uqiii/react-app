@@ -35,7 +35,7 @@ const Profile = () => {
   }, [refreshTime]);
 
   return (
-    <div>
+    <div className="profilePage">
       {loading
         ? <Loading />
         : profile && (
@@ -53,7 +53,6 @@ const Profile = () => {
           <div className="profileContainer">
             <MdModeEdit className="editButton" onClick={() => setIsModalOpen(true)} />
             <div className="avatar" />
-
             <div className="name">{profile.name}</div>
             <div className="position">{profile.position}</div>
             <div className="email">

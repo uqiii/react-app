@@ -1,12 +1,18 @@
+.profilePage {
+  background-color: darkslategrey;
+  border-radius: 15px;
+  padding: 30px;
+  flex-grow: 1;
+  max-width: 500px;
+}
+
 .profileContainer {
   width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: darkslategrey;
-  padding: 30px;
-  border-radius: 15px;
+  width: 100%;
 }
 
 .editButton {
