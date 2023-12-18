@@ -1,8 +1,19 @@
 .wrapper {
   background-color: darkslategrey;
+  margin-bottom: 10px;
 }
 
 .date {
   color: lightgray;
   font-size: large;
+}
+
+.today {
+  background-color: blueviolet;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

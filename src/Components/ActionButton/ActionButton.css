@@ -1,0 +1,8 @@
+button {
+  background-color: brown;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: goldenrod;
+}
