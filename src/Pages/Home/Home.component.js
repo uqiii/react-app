@@ -7,17 +7,18 @@ import { PresenceList } from './PresenceList';
 
 const Home = () => {
   const [dateRange, setDateRage] = useState({});
-  console.log('===== date range', dateRange);
+  const [refreshTime, setRefreshTime] = useState();
 
   return (
     <div className="page">
       <Clock
-        onSuccess={() => {}}
+        onSuccess={() => setRefreshTime(new Date())}
       />
       <Filter
         onApply={(newDateRange) => setDateRage(newDateRange)}
       />
       <PresenceList
+        refreshTime={refreshTime}
         dateRange={dateRange}
       />
     </div>

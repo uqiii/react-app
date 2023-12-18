@@ -8,7 +8,7 @@ import { PresenceCard } from '../../../Components/PresenceCard';
 import { Loading } from '../../../Components/Loading';
 
 const PresenceList = (props) => {
-  const { dateRange: { startDate, endDate } } = props;
+  const { dateRange: { startDate, endDate }, refreshTime } = props;
   const [presences, setPresences] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +36,7 @@ const PresenceList = (props) => {
     };
 
     getPresences();
-  }, [startDate, endDate]);
+  }, [startDate, endDate, refreshTime]);
 
   return (
     <div>

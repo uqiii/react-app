@@ -1,8 +1,23 @@
+.clockContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: darkslategrey;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.time {
+  align-self: center;
+  font-size: xx-large;
+}
+
 .buttonsContainer {
   display: flex;
+  width: auto;
   flex-direction: row;
-  margin: 20px 0;
-  gap: 10px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0;
 }
