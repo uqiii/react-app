@@ -45,6 +45,10 @@ html {
     font-weight: 1000;
 }
 
+.site-title:hover {
+    color: seagreen;
+}
+
 .nav ul {
     padding: 0;
     margin: 0;
@@ -73,9 +77,9 @@ html {
 }
   
 .nav li.active {
-    background-color: #555;
+    color: seagreen;
 }
   
 .nav li:hover {
-    background-color: #777;
+    color: seagreen;
 }

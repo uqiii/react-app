@@ -33,7 +33,7 @@ const Login = (props) => {
           disabled={submitting}
           type="text"
           placeholder="email"
-          autocomplete="off"
+          autoComplete="off"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -43,7 +43,7 @@ const Login = (props) => {
           disabled={submitting}
           type="password"
           placeholder="password"
-          autocomplete="off"
+          autoComplete="off"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

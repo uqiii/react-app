@@ -22,7 +22,7 @@ export default function Navbar() {
       </Link>
       <ul>
         <CustomLink to="/profile">Profile</CustomLink>
-        <button className="bprder" type="button" onClick={auth.logoutUser}>Log Out</button>
+        <button className="border" type="button" onClick={auth.logoutUser}>Log Out</button>
       </ul>
     </nav>
   );
