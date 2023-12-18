@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
 import './Filter.css';
-import { DatePicker } from '../../../Components/DatePicker';
-import { ActionButton } from '../../../Components/ActionButton';
+import { DatePicker } from '../../../../Components/DatePicker';
+import { ActionButton } from '../../../../Components/ActionButton';
 
 const Home = ({ onApply }) => {
   const [startDate, setStartDate] = useState();

@@ -1,0 +1,11 @@
+.switchContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.switchContainer .switchLabel{
+  font-size: medium;
+  margin-right: 10px;
+}

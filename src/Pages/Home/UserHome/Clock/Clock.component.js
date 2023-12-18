@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import './Clock.css';
-import axios from '../../../Api/axios';
-import { ActionButton } from '../../../Components/ActionButton';
+import axios from '../../../../Api/axios';
+import { ActionButton } from '../../../../Components/ActionButton';
 
 const Home = ({ onSuccess }) => {
   const time = new Date().toLocaleTimeString('id-ID');

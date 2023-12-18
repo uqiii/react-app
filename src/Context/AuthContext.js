@@ -10,19 +10,21 @@ const AuthContext = createContext();
 export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => (localStorage.getItem('tokens') ? jwtDecode(localStorage.getItem('tokens')) : null));
+  const [claims, setClaims] = useState(() => (localStorage.getItem('tokens') ? jwtDecode(localStorage.getItem('tokens')) : null));
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const loginUser = async (payload) => {
-    const url = '/users/login';
+  const loginUser = async (payload, isAdmin) => {
+    const url = isAdmin ? '/admins/login' : '/users/login';
     setLoading(true);
     try {
+      setClaims(null);
+      localStorage.removeItem('tokens');
       const response = await axios.post(url, payload);
       toast.success('Successfully Logged in');
       localStorage.setItem('tokens', JSON.stringify(response.data));
-      setUser(jwtDecode(response?.data?.accessToken));
+      setClaims(jwtDecode(response?.data?.accessToken));
       navigate('/', { replace: true });
     } catch (err) {
       const errorMessage = err?.response?.data?.message;
@@ -33,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
-    setUser(null);
+    setClaims(null);
     localStorage.removeItem('tokens');
     toast.success('Successfully logged out');
     navigate('/login');
@@ -41,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
   // eslint-disable-next-line react/jsx-no-constructed-context-values
   const contextData = {
-    user,
+    claims,
     loading,
     loginUser,
     logoutUser

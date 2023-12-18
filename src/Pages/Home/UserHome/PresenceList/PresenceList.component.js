@@ -3,9 +3,9 @@ import toast from 'react-hot-toast';
 import moment from 'moment';
 
 import './PresenceList.css';
-import axios from '../../../Api/axios';
-import { PresenceCard } from '../../../Components/PresenceCard';
-import { Loading } from '../../../Components/Loading';
+import axios from '../../../../Api/axios';
+import { PresenceCard } from '../../../../Components/PresenceCard';
+import { Loading } from '../../../../Components/Loading';
 
 const PresenceList = (props) => {
   const { dateRange: { startDate, endDate }, refreshTime } = props;

@@ -7,6 +7,10 @@
   background-color: slateblue;
 }
 
+.wrapper .switch {
+  margin-bottom: 20px;
+}
+
 .wrapper h1 {
   font-size: 36px;
   text-align: center;

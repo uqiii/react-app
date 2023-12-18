@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import './Home.css';
+import './UserHome.css';
 import { Clock } from './Clock';
-import { Filter } from './Filter';
+import { Filter } from '../Components/Filter';
 import { PresenceList } from './PresenceList';
 
-const Home = () => {
+const UserHome = () => {
   const [dateRange, setDateRage] = useState({});
   const [refreshTime, setRefreshTime] = useState();
 
@@ -25,4 +25,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default UserHome;
