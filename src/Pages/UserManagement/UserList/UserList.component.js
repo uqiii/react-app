@@ -5,13 +5,13 @@ import axios from '../../../Api/axios';
 import { Loading } from '../../../Components/Loading';
 import { UserCard } from '../../../Components/UserCard';
 
-const UserList = () => {
+const UserList = ({ refreshTime }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getUsers = async () => {
-      const url = '/users';
+      const url = '/users?orderBy=desc';
       try {
         setLoading(true);
         const response = await axios.get(url);
@@ -25,7 +25,7 @@ const UserList = () => {
     };
 
     getUsers();
-  }, []);
+  }, [refreshTime]);
 
   return (
     <div>
