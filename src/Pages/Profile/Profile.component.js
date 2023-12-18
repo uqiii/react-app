@@ -4,7 +4,7 @@ import { MdModeEdit, MdEmail, MdLocalPhone } from 'react-icons/md';
 
 import axios from '../../Api/axios';
 import { Loading } from '../../Components/Loading';
-import { EditProfileModal } from '../../Components/EditProfileModal';
+import { EditUserModal } from '../../Components/EditUserModal';
 import { UpdatePasswordModal } from '../../Components/UpdatePasswordModal';
 import './Profile.css';
 import { ActionButton } from '../../Components/ActionButton';
@@ -40,9 +40,9 @@ const Profile = () => {
         ? <Loading />
         : profile && (
         <>
-          <EditProfileModal
+          <EditUserModal
             open={isModalOpen}
-            profile={profile}
+            user={profile}
             onClose={() => setIsModalOpen(false)}
             onSuccess={() => setRefreshTime(new Date())}
           />

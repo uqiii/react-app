@@ -1,4 +1,5 @@
-.wrapper {
+.presenceCard {
+  padding: 20px;
   background-color: darkslategrey;
   margin-bottom: 10px;
   width: auto;

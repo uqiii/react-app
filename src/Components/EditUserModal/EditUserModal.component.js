@@ -4,29 +4,37 @@ import toast from 'react-hot-toast';
 import { InputBox } from '../InputBox';
 import { Button } from '../Button';
 import { Modal } from '../Modal';
-import './EditProfileModal.css';
+import './EditUserModal.css';
 import axios from '../../Api/axios';
 
 const EditProfileModal = (props) => {
   const {
-    profile = {}, open, onClose, onSuccess
+    user = {}, open, onClose, onSuccess, isAdmin = false
   } = props;
-  const [name, setName] = useState(profile.name);
-  const [phone, setPhone] = useState(profile.phone);
-  const [email, setEmail] = useState(profile.email);
+  const [name, setName] = useState(user.name);
+  const [phone, setPhone] = useState(user.phone);
+  const [email, setEmail] = useState(user.email);
+  const [position, setPosition] = useState(user.position);
   const [submitting, setSubmitting] = useState(false);
+
+  const getPayload = () => {
+    if (isAdmin) {
+      return {
+        name, email, phone, position
+      };
+    }
+
+    return { name, email, phone };
+  };
 
   const handleSubmit = async (e) => {
     setSubmitting(true);
     e.preventDefault();
-    const formValues = {
-      name, email, phone
-    };
     try {
-      const url = '/users/current';
-      await axios.patch(url, formValues);
+      const url = isAdmin ? `/users/${user.id}` : '/users/current';
+      const response = await axios.patch(url, getPayload());
       toast.success('Successfully update profile');
-      onSuccess();
+      onSuccess(response.data);
       onClose();
     } catch (err) {
       const errorMessage = err?.response?.data?.message;
@@ -37,9 +45,12 @@ const EditProfileModal = (props) => {
   };
 
   const handleClose = () => {
-    setName(profile.name);
-    setEmail(profile.email);
-    setPhone(profile.phone);
+    setName(user.name);
+    setEmail(user.email);
+    setPhone(user.phone);
+    if (isAdmin) {
+      setPosition(user.position);
+    }
     onClose();
   };
 
@@ -74,9 +85,20 @@ const EditProfileModal = (props) => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
+        {isAdmin
+        && (
+        <InputBox
+          disabled={submitting}
+          type="text"
+          placeholder="position"
+          autoComplete="off"
+          value={position}
+          onChange={(e) => setPosition(e.target.value)}
+        />
+        )}
         <Button
           text="Update"
-          disabled={submitting || !email || !name || !phone}
+          disabled={submitting || !email || !name || !phone || (isAdmin && !position)}
         />
       </form>
     </Modal>

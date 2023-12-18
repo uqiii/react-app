@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .react-icons {
+  color: brown;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+}

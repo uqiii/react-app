@@ -1,0 +1,36 @@
+.userCard {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: darkslategrey;
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  font-size: medium;
+}
+
+.position {
+  margin-right: 5px;
+  font-size: small;
+  color: lightblue;
+}
+
+.actionButton {
+  align-self: end;
+}
+
+.actionButton:hover {
+  cursor: pointer;
+}

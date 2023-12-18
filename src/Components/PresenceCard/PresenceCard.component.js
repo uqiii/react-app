@@ -41,7 +41,7 @@ const PresenceCard = (props) => {
   const dateTitle = isToday ? `Today, ${date}` : date;
 
   return (
-    <div key={id} className={`wrapper border ${isToday && 'today'}`}>
+    <div key={id} className={`presenceCard border ${isToday && 'today'}`}>
       <div className="date">
         {userName || dateTitle}
       </div>

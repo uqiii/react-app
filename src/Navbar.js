@@ -15,34 +15,34 @@ const Navbar = ({ auth }) => {
     return null;
   }
 
-  if (role === 'ADMIN') {
-    return (
-      <nav className="nav">
-        <CustomLink to="/">Daily</CustomLink>
-        <div className="rightPages">
-          <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
-        </div>
-      </nav>
-    );
+  switch (role) {
+    case 'ADMIN':
+      return (
+        <nav className="nav">
+          <CustomLink to="/">Daily</CustomLink>
+          <div className="rightPages">
+            <CustomLink to="/user-management">Users</CustomLink>
+            <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
+          </div>
+        </nav>
+      );
+    case 'USER':
+      return (
+        <nav className="nav">
+          <CustomLink to="/">Daily</CustomLink>
+          <div className="rightPages">
+            <CustomLink to="/profile">Profile</CustomLink>
+            <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
+          </div>
+        </nav>
+      );
+    default:
+      return (
+        <nav className="nav">
+          <CustomLink to="/">Daily</CustomLink>
+        </nav>
+      );
   }
-
-  if (role === 'USER') {
-    return (
-      <nav className="nav">
-        <CustomLink to="/">Daily</CustomLink>
-        <div className="rightPages">
-          <CustomLink to="/profile">Profile</CustomLink>
-          <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
-        </div>
-      </nav>
-    );
-  }
-
-  return (
-    <nav className="nav">
-      <CustomLink to="/">Daily</CustomLink>
-    </nav>
-  );
 };
 
 function CustomLink({ to, children, ...props }) {

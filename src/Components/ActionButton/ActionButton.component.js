@@ -5,7 +5,9 @@ import './ActionButton.css';
 import { Loading } from '../Loading';
 
 const ActionButton = (props) => {
-  const { text, onSubmit, ...buttonProps } = props;
+  const {
+    text, onSubmit, onSuccess, ...buttonProps
+  } = props;
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
