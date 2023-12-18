@@ -1,18 +1,29 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   Link, useMatch, useResolvedPath, useLocation
 } from 'react-router-dom';
 
-import AuthContext from './Context/AuthContext';
+import withAuth from './Composers/withAuth';
 
-export default function Navbar() {
-  const auth = useContext(AuthContext);
+const Navbar = ({ auth }) => {
+  const role = auth?.claims?.user?.role;
   const location = useLocation();
 
   const withoutNavbarPages = ['/login'];
 
   if (withoutNavbarPages.includes(location.pathname)) {
     return null;
+  }
+
+  if (role === 'ADMIN') {
+    return (
+      <nav className="nav">
+        <CustomLink to="/">Daily</CustomLink>
+        <div className="rightPages">
+          <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
+        </div>
+      </nav>
+    );
   }
 
   return (
@@ -24,7 +35,7 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 function CustomLink({ to, children, ...props }) {
   const resolvedPath = useResolvedPath(to);
@@ -36,3 +47,5 @@ function CustomLink({ to, children, ...props }) {
     </Link>
   );
 }
+
+export default withAuth(Navbar);

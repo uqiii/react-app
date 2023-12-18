@@ -18,23 +18,32 @@ const getDate = (timestamp) => {
 };
 
 const PresenceCard = (props) => {
-  const { id, checkIn, checkOut } = props;
+  const {
+    userName, id, checkIn, checkOut
+  } = props;
   const isToday = new Date().setHours(0, 0, 0, 0) === new Date(checkIn).setHours(0, 0, 0, 0);
+
+  const getCheckOutText = () => {
+    if (checkOut) {
+      const checkOutTime = getTime(checkOut);
+      return `${checkOutTime} WIB`;
+    }
+    if (userName) {
+      return isToday ? `${userName} has not checked out` : `${userName} did not check out`;
+    }
+    return isToday ? 'You have not checked out' : 'You did not check out';
+  };
 
   const date = getDate(checkIn);
   const checkInTime = getTime(checkIn);
   const checkInText = `${checkInTime} WIB`;
-  const checkOutTime = getTime(checkOut);
-  const checkOutText = checkOutTime
-    ? `${checkOutTime} WIB`
-    : 'You have not checked out';
 
   const dateTitle = isToday ? `Today, ${date}` : date;
 
   return (
     <div key={id} className={`wrapper border ${isToday && 'today'}`}>
       <div className="date">
-        {dateTitle}
+        {userName || dateTitle}
       </div>
       <div className="check">
         <FaArrowRight color="seagreen" />
@@ -42,7 +51,7 @@ const PresenceCard = (props) => {
       </div>
       <div className="check">
         <FaArrowLeft color="brown" />
-        {checkOutText}
+        {getCheckOutText()}
       </div>
     </div>
   );
