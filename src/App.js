@@ -12,7 +12,7 @@ import { UserManagement } from './Pages/UserManagement';
 function App() {
   return (
     <>
-      <Toaster />
+      <Toaster position="bottom-center" />
       <Navbar />
       <div className="container">
         <Routes>
