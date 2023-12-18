@@ -12,7 +12,6 @@ const ActionButton = (props) => {
     setLoading(true);
     try {
       await onSubmit();
-      toast.success('Success');
     } catch (err) {
       const errorMessage = err?.response?.data?.message;
       toast.error(errorMessage || 'Error');

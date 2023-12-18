@@ -1,9 +1,10 @@
 .profileContainer {
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: cadetblue;
+  background-color: darkslategrey;
   padding: 30px;
   border-radius: 15px;
 }
@@ -21,23 +22,28 @@
   font-weight: 700;
 }
 
+.profileContainer .buttonsContainer {
+  width: 100%;
+}
+
 .profileContainer .position {
   font-size: medium;
-  font-weight: 700;
+  font-weight: 100;
+  margin-bottom: 10px;
 }
 
 .profileContainer .email {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: x-large;
+  font-size: large;
 }
 
 .profileContainer .phone {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: x-large;
+  font-size: large;
 }
 
 .avatar {
@@ -45,4 +51,5 @@
   width: 80px;
   background-color: blanchedalmond;
   border-radius: 50%;
+  margin-bottom: 10px;
 }
