@@ -6,6 +6,7 @@ import { Home } from './Pages/Home';
 import { Profile } from './Pages/Profile';
 import Navbar from './Navbar';
 import RequireAuth from './RequireAuth';
+import { Missing } from './Pages/Missing';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route element={(<RequireAuth allowedRoles={['USER']} />)}>
             <Route path="/profile" element={<Profile />} exact />
           </Route>
+          <Route path="*" element={<Missing />} />
         </Routes>
       </div>
     </>

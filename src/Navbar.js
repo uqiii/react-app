@@ -26,13 +26,21 @@ const Navbar = ({ auth }) => {
     );
   }
 
+  if (role === 'USER') {
+    return (
+      <nav className="nav">
+        <CustomLink to="/">Daily</CustomLink>
+        <div className="rightPages">
+          <CustomLink to="/profile">Profile</CustomLink>
+          <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
+        </div>
+      </nav>
+    );
+  }
+
   return (
     <nav className="nav">
       <CustomLink to="/">Daily</CustomLink>
-      <div className="rightPages">
-        <CustomLink to="/profile">Profile</CustomLink>
-        <button className="site-title" type="button" onClick={auth.logoutUser}>Logout</button>
-      </div>
     </nav>
   );
 };
