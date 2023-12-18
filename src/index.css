@@ -13,12 +13,12 @@ html {
 }
 
 .container {
-    padding-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background-color: seagreen;
+    padding: 40px 20px;
 }
 
 .border {
@@ -36,7 +36,6 @@ html {
     align-items: stretch;
     gap: 2rem;
     padding: 15px 60px;
-    position: absolute;
     width: 100vw;
     flex-grow: 1;
 }
