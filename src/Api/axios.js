@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// const BASE_URL = 'http://https://green-pike-hose.cyclic.app:3001';
+// const BASE_URL = 'https://green-pike-hose.cyclic.app';
 const BASE_URL = 'http://localhost:3001';
 
 let authTokens = localStorage.getItem('tokens') ? JSON.parse(localStorage.getItem('tokens')) : null;

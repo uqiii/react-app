@@ -1,0 +1,25 @@
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: darkslategrey;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.datePickersContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.filterButtonsContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 50%;
+  align-self: flex-end;
+}
