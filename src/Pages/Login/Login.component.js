@@ -17,7 +17,9 @@ const Login = (props) => {
     setSubmitting(true);
     e.preventDefault();
     try {
-      await await auth.loginUser({ email, password }, isAdmin);
+      await await auth.loginUser({
+        email: email.toLowerCase(), password
+      }, isAdmin);
     } finally {
       setSubmitting(false);
     }
