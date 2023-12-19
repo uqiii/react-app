@@ -43,7 +43,7 @@ const PresenceList = (props) => {
     const isToday = new Date().setHours(0, 0, 0, 0) === new Date(date).setHours(0, 0, 0, 0);
     return (
       <div>
-        <div>
+        <div className="sectionDate">
           {isToday && 'Today, '}
           {DateUtils.getDate(date)}
         </div>

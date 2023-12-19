@@ -28,18 +28,18 @@ const PresenceCard = (props) => {
   const dateTitle = isToday ? `Today, ${date}` : date;
 
   return (
-    <div key={id} className={`presenceCard border ${isToday && 'today'}`}>
-      <div className="date">
+    <div key={id} className={`presenceCard ${isToday && 'today'}`}>
+      <p className="date">
         {userName || dateTitle}
-      </div>
-      <div className="check">
+      </p>
+      <p className="check">
         <FaArrowRight color="seagreen" />
         {checkInText}
-      </div>
-      <div className="check">
+      </p>
+      <p className="check">
         <FaArrowLeft color="brown" />
         {getCheckOutText()}
-      </div>
+      </p>
     </div>
   );
 };

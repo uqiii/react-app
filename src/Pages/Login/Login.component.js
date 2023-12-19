@@ -24,7 +24,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="page loginComponent border">
+    <div className="page loginComponent">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <InputBox
@@ -55,6 +55,7 @@ const Login = (props) => {
         />
         <Button
           text="Login"
+          className="primaryButton"
           disabled={submitting || !email || !password}
         />
       </form>

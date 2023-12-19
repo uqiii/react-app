@@ -5,6 +5,7 @@ import { InputBox } from '../InputBox';
 import { Button } from '../Button';
 import { Modal } from '../Modal';
 import axios from '../../Api/axios';
+import './CreateUserModal.css';
 
 const CreateUserModal = (props) => {
   const {
@@ -78,7 +79,7 @@ const CreateUserModal = (props) => {
       open={open}
       onClose={handleClose}
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="createUserModal">
         <h1>Create User</h1>
         {fields.map(({ placeholder, value, valueController }) => (
           <InputBox
@@ -91,6 +92,7 @@ const CreateUserModal = (props) => {
           />
         ))}
         <Button
+          className="primaryButton"
           text="Create"
           disabled={submitting || !email || !name || !phone || !position || !password}
         />

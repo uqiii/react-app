@@ -14,6 +14,7 @@ const UserCreator = ({ onSuccess }) => {
         onSuccess={onSuccess}
       />
       <Button
+        className="primaryButton"
         text="Create User"
         onClick={() => setOpen(true)}
       />

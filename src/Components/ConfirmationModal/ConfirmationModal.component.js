@@ -24,10 +24,12 @@ const ConfirmationModal = (props) => {
       </div>
       <div className="buttonsContainer">
         <ActionButton
+          className="primaryButton"
           text="Confirm"
           onSubmit={onConfirm}
         />
         <Button
+          className="secondaryButton"
           text="Cancel"
           onClick={onClose}
         />

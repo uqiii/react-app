@@ -1,21 +1,28 @@
 .presenceCard {
   padding: 20px;
-  background-color: darkslategrey;
+  background-color: rgba(0,0,0,.7);
   margin-bottom: 10px;
   width: auto;
+  border-radius: 15px;
 }
 
 .date {
   color: lightgray;
   font-size: large;
+  font-weight: 800;
 }
 
 .today {
-  background-color: blueviolet;
+  background-color: beige;
+}
+
+.today p {
+  color: black;
 }
 
 .check {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: large;
 }

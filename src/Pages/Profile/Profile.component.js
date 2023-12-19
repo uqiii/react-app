@@ -64,6 +64,7 @@ const Profile = () => {
             </div>
             <div className="buttonsContainer">
               <ActionButton
+                className="primaryButton"
                 text="Change Password"
                 onSubmit={() => setIsUpdatePasswordModalOpen(true)}
               />

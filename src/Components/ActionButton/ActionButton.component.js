@@ -25,6 +25,7 @@ const ActionButton = (props) => {
   return (
     <button
       type="button"
+      className="border"
       {...buttonProps}
       onClick={handleClick}
     >

@@ -14,3 +14,8 @@
   width: 50%;
   align-self: flex-end;
 }
+
+.sectionDate {
+  font-size: medium;
+  margin-bottom: 5px;
+}

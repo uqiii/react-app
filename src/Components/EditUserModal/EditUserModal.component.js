@@ -59,7 +59,7 @@ const EditProfileModal = (props) => {
       open={open}
       onClose={handleClose}
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="editUserModal">
         <h1>Edit Profile</h1>
         <InputBox
           disabled={submitting}
@@ -98,6 +98,7 @@ const EditProfileModal = (props) => {
         )}
         <Button
           text="Update"
+          className="primaryButton"
           disabled={submitting || !email || !name || !phone || (isAdmin && !position)}
         />
       </form>

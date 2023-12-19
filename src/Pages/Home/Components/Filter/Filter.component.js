@@ -17,8 +17,9 @@ const Home = ({ onApply }) => {
         <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
       </div>
       <div className="filterButtonsContainer">
-        <ActionButton text="Apply" onSubmit={() => onApply({ startDate, endDate })} />
+        <ActionButton className="primaryButton" text="Apply" onSubmit={() => onApply({ startDate, endDate })} />
         <ActionButton
+          className="secondaryButton"
           text="Reset"
           onSubmit={() => {
             setStartDate();

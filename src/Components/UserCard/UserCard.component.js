@@ -41,7 +41,7 @@ const UserCard = ({ user }) => {
         onClose={() => setIsEditModalOpen(false)}
         onSuccess={(updatedUser) => setUserData(updatedUser)}
       />
-      <div key={id} className="userCard border">
+      <div key={id} className="userCard">
         <div>
           <div className="position">
             {position}

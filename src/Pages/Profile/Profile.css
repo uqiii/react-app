@@ -1,5 +1,5 @@
 .profilePage {
-  background-color: darkslategrey;
+  background-color: rgba(0,0,0,.7);
   border-radius: 15px;
   padding: 30px;
   flex-grow: 1;

@@ -35,8 +35,8 @@ const Home = ({ onSuccess }) => {
         WIB
       </div>
       <div className="buttonsContainer">
-        <ActionButton text="Check In" onSubmit={doCheckIn} />
-        <ActionButton text="Check Out" onSubmit={doCheckOut} />
+        <ActionButton className="primaryButton" text="Check In" onSubmit={doCheckIn} />
+        <ActionButton className="primaryButton" text="Check Out" onSubmit={doCheckOut} />
       </div>
     </div>
   );
