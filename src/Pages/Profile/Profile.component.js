@@ -10,11 +10,10 @@ import './Profile.css';
 import { ActionButton } from '../../Components/ActionButton';
 
 const Profile = () => {
-  const [profile, setProfile] = useState();
+  const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUpdatePasswordModalOpen, setIsUpdatePasswordModalOpen] = useState(false);
-  const [refreshTime, setRefreshTime] = useState();
 
   useEffect(() => {
     const getProfile = async () => {
@@ -32,7 +31,7 @@ const Profile = () => {
     };
 
     getProfile();
-  }, [refreshTime]);
+  }, []);
 
   return (
     <div className="profilePage">
@@ -44,7 +43,7 @@ const Profile = () => {
             open={isModalOpen}
             user={profile}
             onClose={() => setIsModalOpen(false)}
-            onSuccess={() => setRefreshTime(new Date())}
+            onSuccess={setProfile}
           />
           <UpdatePasswordModal
             open={isUpdatePasswordModalOpen}
